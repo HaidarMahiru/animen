@@ -39,12 +39,10 @@
             border-radius: 10px;
             margin-top: 10px;
             text-align: left;
-            position: relative;
         }
         .synopsis-title {
             font-size: 20px;
             font-weight: bold;
-            color: white;
         }
         .synopsis-text {
             opacity: 0.6;
@@ -57,12 +55,11 @@
             font-size: 18px;
             font-weight: normal;
             margin-bottom: 5px;
-            color: white;
         }
         .related-thumbnail img {
-            width: 100px; /* Ukuran gambar lebih kecil */
-            height: 100px; /* Membuatnya berbentuk kotak */
-            border-radius: 5px; /* Sedikit melengkung di sudut */
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
             margin-top: 10px;
         }
         .related-anime-name {
@@ -78,12 +75,6 @@
             font-size: 22px;
             font-weight: bold;
             margin-bottom: 10px;
-        }
-        .episode-home {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 10px;
         }
         .episode-home div {
             background-color: #333;
@@ -110,7 +101,6 @@
             display: flex;
             align-items: center;
             margin-top: 10px;
-            text-align: left;
         }
         .video-thumbnail img {
             width: 50px;
@@ -140,16 +130,14 @@
 <body>
     <div class="container" id="mainPage">
         <div class="thumbnail">
-            <img id="animeThumbnail" src="https://files.catbox.moe/7j7tak.jpg" alt="Solo Leveling">
+            <img src="https://files.catbox.moe/7j7tak.jpg" alt="Solo Leveling">
         </div>
-        <div class="anime-title" id="animeTitle">Solo Leveling</div>
-        <div class="anime-title-jp" id="animeTitleJP">Ore dake Level Up na Ken</div>
+        <div class="anime-title">Solo Leveling</div>
+        <div class="anime-title-jp">Ore dake Level Up na Ken</div>
         <div class="info-box">
             <div class="synopsis-title">Synopsis</div>
-            <p id="animeSynopsis" class="synopsis-text">
-                Sepuluh tahun setelah kemunculan "gerbang" yang menghubungkan dunia nyata dan dimensi lain, manusia dengan kekuatan super yang disebut "Hunter" muncul. Para Hunter mendapat uang dengan menaklukkan ruang bawah tanah di dalam gerbang.
-                <br><br>
-                Di dunia tempat orang-orang tangguh ini, Shun Mizushino (Jin-Woo Sung) dikenal sebagai Hunter terlemah. Suatu hari, ketika Shun dalam kondisi terjepit, muncul jendela misterius tepat di depannya. Muncul sebuah pesan undangan quest untuk menaikkan level.
+            <p class="synopsis-text">
+                Sepuluh tahun setelah kemunculan "gerbang" yang menghubungkan dunia nyata dan dimensi lain, manusia dengan kekuatan super yang disebut "Hunter" muncul.
             </p>
         </div>
 
@@ -165,17 +153,17 @@
             <div class="episode-title">Episode (12)</div>
             <div class="episode-home">
                 <div onclick="playEpisode('https://files.catbox.moe/y3n7tz.mp4')">Episode 1</div>
-                <div onclick="playEpisode('s2.mp4')">Episode 2</div>
-                <div onclick="playEpisode('s3.mp4')">Episode 3</div>
-                <div onclick="playEpisode('s4.mp4')">Episode 4</div>
-                <div onclick="playEpisode('s5.mp4')">Episode 5</div>
-                <div onclick="playEpisode('s6.mp4')">Episode 6</div>
-                <div onclick="playEpisode('s7.mp4')">Episode 7</div>
-                <div onclick="playEpisode('s8.mp4')">Episode 8</div>
-                <div onclick="playEpisode('s9.mp4')">Episode 9</div>
-                <div onclick="playEpisode('s10.mp4')">Episode 10</div>
-                <div onclick="playEpisode('s11.mp4')">Episode 11</div>
-                <div onclick="playEpisode('s12.mp4')">Episode 12</div>
+                <div onclick="playEpisode('https://files.catbox.moe/z27k7z.mp4')">Episode 2</div>
+                <div onclick="playEpisode('https://files.catbox.moe/ay6hej.mp4')">Episode 3</div>
+                <div onclick="playEpisode('https://files.catbox.moe/t9nw91.mp4')">Episode 4</div>
+                <div onclick="playEpisode('https://files.catbox.moe/bgffqy.mp4')">Episode 5</div>
+                <div onclick="playEpisode('https://files.catbox.moe/kfokib.mp4')">Episode 6</div>
+                <div onclick="playEpisode('https://files.catbox.moe/lfxp5z.mp4')">Episode 7</div>
+                <div onclick="playEpisode('https://files.catbox.moe/q1ociy.mp4')">Episode 8</div>
+                <div onclick="playEpisode('https://files.catbox.moe/61clzq.mp4')">Episode 9</div>
+                <div onclick="playEpisode('https://files.catbox.moe/mupqkw.mp4')">Episode 10</div>
+                <div onclick="playEpisode('https://files.catbox.moe/gdzzhb.mp4')">Episode 11</div>
+                <div onclick="playEpisode('https://files.catbox.moe/rspkd7.mp4')">Episode 12</div>
             </div>
         </div>
     </div>
