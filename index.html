@@ -3,226 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Leveling</title>
+    <title>AnimeZone</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
+        /* Reset */
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        .thumbnail img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .anime-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .anime-title-jp {
-            font-size: 14px;
-            opacity: 0.5;
-            margin-top: -5px;
-        }
-        .info-box {
-            background-color: #222;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 10px;
-            text-align: left;
-            position: relative;
-        }
-        .synopsis-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-        }
-        .synopsis-text {
-            opacity: 0.6;
-        }
-        .related-anime {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .related-anime-title {
-            font-size: 18px;
-            font-weight: normal;
-            margin-bottom: 5px;
-            color: white;
-        }
-        .related-thumbnail img {
-            width: 100px; /* Ukuran gambar lebih kecil */
-            height: 100px; /* Membuatnya berbentuk kotak */
-            border-radius: 5px; /* Sedikit melengkung di sudut */
-            margin-top: 10px;
-        }
-        .related-anime-name {
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .episode-section {
-            text-align: left;
-            margin-top: 20px;
-        }
-        .episode-title {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .episode-home {
+
+        /* Navbar */
+        .navbar {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            background: #222;
+            padding: 15px 20px;
+            color: white;
         }
-        .episode-home div {
-            background-color: #333;
-            padding: 12px;
-            border-radius: 10px;
-            margin: 5px;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
-            transition: background 0.3s;
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
         }
-        .episode-home div:hover {
-            background-color: #555;
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
         }
-        .video-container {
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #00aaff;
+        }
+
+        /* Menu Toggle untuk Mobile */
+        .menu-toggle {
             display: none;
-            margin-top: 20px;
+            font-size: 24px;
+            cursor: pointer;
         }
-        video {
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
             width: 100%;
-            border-radius: 10px;
-        }
-        .video-info {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-            text-align: left;
-        }
-        .video-thumbnail img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-        .video-details {
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .back-btn, .fullscreen-btn {
-            margin-top: 10px;
+            flex-direction: column;
+            text-align: center;
             padding: 10px;
-            background-color: #333;
-            border-radius: 10px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            background: #00aaff;
+        }
+
+        /* Anime List */
+        .anime-list {
+            padding: 20px;
+            text-align: center;
+            background: #111;
+            color: white;
+        }
+
+        .anime-list h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .anime-item {
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
             cursor: pointer;
             transition: background 0.3s;
-            display: inline-block;
-            margin-right: 5px;
         }
-        .back-btn:hover, .fullscreen-btn:hover {
-            background-color: #555;
+
+        .anime-item:hover {
+            background: #333;
+        }
+
+        .anime-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .anime-item h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .anime-item p {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="mainPage">
-        <div class="thumbnail">
-            <img id="animeThumbnail" src="https://files.catbox.moe/7j7tak.jpg" alt="Solo Leveling">
-        </div>
-        <div class="anime-title" id="animeTitle">Solo Leveling</div>
-        <div class="anime-title-jp" id="animeTitleJP">Ore dake Level Up na Ken</div>
-        <div class="info-box">
-            <div class="synopsis-title">Synopsis</div>
-            <p id="animeSynopsis" class="synopsis-text">
-                Sepuluh tahun setelah kemunculan "gerbang" yang menghubungkan dunia nyata dan dimensi lain, manusia dengan kekuatan super yang disebut "Hunter" muncul. Para Hunter mendapat uang dengan menaklukkan ruang bawah tanah di dalam gerbang.
-                <br><br>
-                Di dunia tempat orang-orang tangguh ini, Shun Mizushino (Jin-Woo Sung) dikenal sebagai Hunter terlemah. Suatu hari, ketika Shun dalam kondisi terjepit, muncul jendela misterius tepat di depannya. Muncul sebuah pesan undangan quest untuk menaikkan level.
-            </p>
-        </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1 class="logo">AnimeZone</h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Genres</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
 
-        <div class="related-anime">
-            <div class="related-anime-title">Anime Terkait</div>
-            <div class="related-thumbnail">
-                <img src="https://files.catbox.moe/9dxg00.jpg" alt="Solo Leveling S2">
-            </div>
-            <div class="related-anime-name">Solo Leveling S2</div>
-        </div>
-
-        <div class="episode-section">
-            <div class="episode-title">Episode (12)</div>
-            <div class="episode-home">
-                <div onclick="playEpisode('s1.mp4')">Episode 1</div>
-                <div onclick="playEpisode('s2.mp4')">Episode 2</div>
-                <div onclick="playEpisode('s3.mp4')">Episode 3</div>
-                <div onclick="playEpisode('s4.mp4')">Episode 4</div>
-                <div onclick="playEpisode('s5.mp4')">Episode 5</div>
-                <div onclick="playEpisode('s6.mp4')">Episode 6</div>
-                <div onclick="playEpisode('s7.mp4')">Episode 7</div>
-                <div onclick="playEpisode('s8.mp4')">Episode 8</div>
-                <div onclick="playEpisode('s9.mp4')">Episode 9</div>
-                <div onclick="playEpisode('s10.mp4')">Episode 10</div>
-                <div onclick="playEpisode('s11.mp4')">Episode 11</div>
-                <div onclick="playEpisode('s12.mp4')">Episode 12</div>
-            </div>
-        </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">Trending</a>
+        <a href="#">Genres</a>
+        <a href="#">Contact</a>
     </div>
 
-    <div class="container video-container" id="videoPage">
-        <video id="animeVideo" controls>
-            <source src="" type="video/mp4">
-            Browser Anda tidak mendukung tag video.
-        </video>
-        <div class="video-info">
-            <div class="video-thumbnail">
-                <img src="https://files.catbox.moe/7j7tak.jpg" alt="Solo Leveling">
+    <!-- Daftar Anime -->
+    <section class="anime-list">
+        <h2>Trending Anime</h2>
+        <div class="grid">
+            <!-- Solo Leveling -->
+            <a href="solo-leveling.html" style="text-decoration: none; color: white;">
+                <div class="anime-item">
+                    <img src="https://files.catbox.moe/7j7tak.jpg" alt="Solo Leveling">
+                    <h3>Solo Leveling</h3>
+                    <p>Episode 12</p>
+                </div>
+            </a>
+
+            <div class="anime-item">
+                <img src="https://placehold.co/300x400?text=Anime+2" alt="Anime 2">
+                <h3>Anime 2</h3>
+                <p>Episode 24</p>
             </div>
-            <div class="video-details">Solo Leveling</div>
+            <div class="anime-item">
+                <img src="https://placehold.co/300x400?text=Anime+3" alt="Anime 3">
+                <h3>Anime 3</h3>
+                <p>Episode 10</p>
+            </div>
+            <div class="anime-item">
+                <img src="https://placehold.co/300x400?text=Anime+4" alt="Anime 4">
+                <h3>Anime 4</h3>
+                <p>Episode 20</p>
+            </div>
         </div>
-        <div class="back-btn" onclick="backToHome()">Kembali</div>
-        <div class="fullscreen-btn" onclick="toggleFullscreen()">Layar Penuh</div>
-    </div>
+    </section>
 
     <script>
-        function playEpisode(videoSrc) {
-            document.getElementById("mainPage").style.display = "none";
-            document.getElementById("videoPage").style.display = "block";
-            let video = document.getElementById("animeVideo");
-            video.src = videoSrc;
-            video.load();
-            video.play();
-        }
-
-        function backToHome() {
-            document.getElementById("mainPage").style.display = "block";
-            document.getElementById("videoPage").style.display = "none";
-            let video = document.getElementById("animeVideo");
-            video.pause();
-        }
-
-        function toggleFullscreen() {
-            let video = document.getElementById("animeVideo");
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) { 
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) { 
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { 
-                video.msRequestFullscreen();
-            }
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
